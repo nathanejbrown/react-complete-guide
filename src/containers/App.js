@@ -6,6 +6,20 @@ import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Inside Constructor', props);
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] inside componentDidMount()');
+  }
+
   state = {
     persons: [
       { id: ';lkasdo', name: 'Nathan', age: 26},
@@ -50,7 +64,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log('App.js render');
     let persons = null;
 
     if (this.state.showPersons) {

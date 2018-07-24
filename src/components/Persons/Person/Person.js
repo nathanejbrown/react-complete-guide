@@ -9,7 +9,21 @@ class Person extends Component {
   //   } //THIS ONLY WORKS WITH RADIUM
   // };
 
+  constructor(props) {
+    super(props);
+    console.log('[Person.js] Inside Constructor', props);
+  }
+
+  componentWillMount() {
+    console.log('[Person.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[Person.js] inside componentDidMount()');
+  }
+
   render() {
+    console.log('Person.js in render');
     var text = 'I\'m a person';
     return (
       <div className={classes.Person}>

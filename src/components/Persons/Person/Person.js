@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './Person.css';
 // import Radium from 'radium';
 
-class Person extends Component {
+class Person extends PureComponent {
   // const style = {
   //   '@media (min-width: 500px)': {
   //     width: '10%'
@@ -20,6 +20,26 @@ class Person extends Component {
 
   componentDidMount() {
     console.log('[Person.js] inside componentDidMount()');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    //Only necessary when update is triggered externally (state is changed in App.js)
+    console.log('UPDATE persons.js Inside componentWillReceiveProps', nextProps);
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('UPDATE persons.js Inside shouldComponentUpdate()', nextProps, nextState);
+  //   return nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked;
+  // }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('UPDATE persons.js inside componentWillUpdate()', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('UPDATE persons.js inside componentDidUpdate()');
   }
 
   render() {

@@ -17,12 +17,16 @@ class Persons extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    //Only necessary when update is triggered externally (state is changed in App.js)
     console.log('UPDATE persons.js Inside componentWillReceiveProps', nextProps);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('UPDATE persons.js Inside shouldComponentUpdate()', nextProps, nextState);
-    return nextProps.persons !== this.props.persons;
+    return nextProps.persons !== this.props.persons ||
+      nextProps.changed !== this.props.changed ||
+      nextProps.clicked !== this.props.clicked;
+    // return true;
   }
 
   componentWillUpdate(nextProps, nextState) {

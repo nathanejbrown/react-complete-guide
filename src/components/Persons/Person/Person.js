@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import classes from './Person.css';
 // import Radium from 'radium';
+import WithClass from '../../../hoc/WithClass';
 
 class Person extends PureComponent {
   // const style = {
@@ -46,11 +47,11 @@ class Person extends PureComponent {
     console.log('Person.js in render');
     var text = 'I\'m a person';
     return (
-      <div className={classes.Person}>
+      <WithClass classes={classes.Person}>
         <p onClick={this.props.click}>{text} named {this.props.name} and I am {this.props.age} years old.</p>
         <p>{this.props.children}</p>
         <input type="text" onChange={this.props.changed} value={this.props.name}/>
-      </div>
+      </WithClass>
     );
   }
 };

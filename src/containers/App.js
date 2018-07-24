@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import classes from './App.css';
 // import Radium, { StyleRoot } from 'radium';
 import Persons from '../components/Persons/Persons';
-import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+// import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 class App extends PureComponent {
 
@@ -96,7 +97,7 @@ class App extends PureComponent {
 
     return (
       // <StyleRoot>
-        <div className={classes.App}>
+        <WithClass classes={classes.App}>
           <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
           <Cockpit
             appTitle={this.props.title}
@@ -105,7 +106,7 @@ class App extends PureComponent {
             clicked={this.togglePersonsHandler}
           />
           {persons}
-        </div>
+        </WithClass>
       // </StyleRoot>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React app!'));

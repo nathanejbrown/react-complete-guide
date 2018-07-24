@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './cockpit.css';
+// import Aux from '../../hoc/Aux'; -- this isn't necessary because of React.Fragment
 
 const cockpit = (props) => {
 
   const assignedClasses = [];
-  let btnClass = '';
+  let btnClass = classes.Button;
   if(props.showPersons) {
-    btnClass = classes.Red;
+    btnClass = [classes.Button, classes.Red].join(' ');
   }
 
   if (props.persons.length <= 2) {
@@ -17,15 +18,16 @@ const cockpit = (props) => {
   }
 
   return (
-    <div className={classes.Cockpit}>
+    <React.Fragment>
       <h1>{props.appTitle}</h1>
       <p className={assignedClasses.join(' ')}>Words and stuff!</p>
       <button
         className={btnClass}
         onClick={props.clicked}>Toggle Persons
       </button>
-    </div>
+    </React.Fragment>
   );
+// React.Fragment is a built in React component that does what Aux.js does.
 };
 
 export default cockpit;

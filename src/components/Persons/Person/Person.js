@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import classes from './Person.css';
 // import Radium from 'radium';
 import withClass from '../../../hoc/withClass';
+import PropTypes from 'prop-types';
 
 class Person extends PureComponent {
   // const style = {
@@ -54,6 +55,14 @@ class Person extends PureComponent {
       </React.Fragment>
     );
   }
+};
+
+// doesn't work in functional components
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
 };
 
 export default withClass(Person, classes.Person);

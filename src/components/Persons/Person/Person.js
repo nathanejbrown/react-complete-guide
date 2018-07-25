@@ -22,6 +22,9 @@ class Person extends PureComponent {
 
   componentDidMount() {
     console.log('[Person.js] inside componentDidMount()');
+    if (this.props.position === 0) {
+      this.inputElement.focus()
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -51,7 +54,11 @@ class Person extends PureComponent {
       <React.Fragment>
         <p onClick={this.props.click}>{text} named {this.props.name} and I am {this.props.age} years old.</p>
         <p>{this.props.children}</p>
-        <input type="text" onChange={this.props.changed} value={this.props.name}/>
+        <input
+          ref={(input) => { this.inputElement = input }}
+          type="text"
+          onChange={this.props.changed}
+          value={this.props.name} />
       </React.Fragment>
     );
   }

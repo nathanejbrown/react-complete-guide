@@ -25,6 +25,7 @@ const cockpit = (props) => {
         className={btnClass}
         onClick={props.clicked}>Toggle Persons
       </button>
+      <button onClick={props.login}>Log In</button>
     </React.Fragment>
   );
 // React.Fragment is a built in React component that does what Aux.js does.
